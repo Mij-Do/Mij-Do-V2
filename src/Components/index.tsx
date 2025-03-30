@@ -12,7 +12,7 @@ const Navbar = ({navitems}: IProps) => {
 
                 <nav className='nav-items'>
                     <ul className='list-items'>
-                        {navitems.map(items => <li className='items'>{items}</li>)}
+                        {navitems.map(items => items === 'hero' ? <li className='items active'>{items}</li> : <li className='items'>{items}</li>)}
                     </ul>
                 </nav>
             </header>
