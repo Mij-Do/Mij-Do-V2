@@ -18,11 +18,14 @@ const Navbar = ({navitems}: IProps) => {
 
                 <nav className='nav-items'>
                     <ul className='list-items'>
-                        {navitems.map(items => <li 
-                        key={items}
-                        className={activeItem === items ? 'items active' : 'items'}
-                        onClick={() => handelClick(items)}
-                        >{items}</li>)}
+                        {navitems.map(items => 
+                        <li
+                            key={items}
+                            className={activeItem === items ? 'items active' : 'items'}
+                            onClick={() => handelClick(items)}
+                        >
+                        {items}
+                        </li>)}
                     </ul>
                 </nav>
             </header>
