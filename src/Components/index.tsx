@@ -1,10 +1,16 @@
+import { useState } from 'react';
 import './index.scss';
+
 
 interface IProps {
     navitems: string[];
 }
 
 const Navbar = ({navitems}: IProps) => {
+    const [activeItem, setActiveItem] = useState('hero');
+    const handelClick = (item: string) => {
+        setActiveItem(item);
+    }
     return (
         <>
             <header>
@@ -12,7 +18,11 @@ const Navbar = ({navitems}: IProps) => {
 
                 <nav className='nav-items'>
                     <ul className='list-items'>
-                        {navitems.map(items => items === 'hero' ? <li className='items active'>{items}</li> : <li className='items'>{items}</li>)}
+                        {navitems.map(items => <li 
+                        key={items}
+                        className={activeItem === items ? 'items active' : 'items'}
+                        onClick={() => handelClick(items)}
+                        >{items}</li>)}
                     </ul>
                 </nav>
             </header>
